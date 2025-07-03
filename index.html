@@ -9,13 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #3b82f6;
-            --primary-blue-dark: #2563eb;
-            --secondary-gray: #e5e7eb;
-            --text-dark: #1f2937;
-            --text-light: #4b5563;
-            --bg-light: #f9fafb;
-            --bg-dark: #f3f4f6;
+            --primary-blue: #3b82f6; /* Tailwind blue-600 */
+            --primary-blue-dark: #2563eb; /* Tailwind blue-700 */
+            /* New accent colors for more vibrancy */
+            --accent-emerald: #10B981; /* Tailwind emerald-500 */
+            --accent-violet: #8B5CF6; /* Tailwind violet-500 */
+
+            --secondary-gray: #e5e7eb; /* Tailwind gray-200 */
+            --text-dark: #1f2937; /* Tailwind gray-900 */
+            --text-light: #4b5563; /* Tailwind gray-700 */
+            --bg-light: #f9fafb; /* Tailwind gray-50 */
+            --bg-dark: #f3f4f6; /* Tailwind gray-100 */
         }
 
         body {
@@ -108,7 +112,7 @@
         .typewriter::after {
             content: '|'; /* The cursor character */
             display: inline-block;
-            color: var(--primary-blue);
+            color: var(--primary-blue); /* Cursor color */
             margin-left: 5px; /* Space between text and cursor */
             animation: none; /* No animation by default */
         }
@@ -284,8 +288,8 @@
                     </h2>
                     <p class="text-lg md:text-xl text-gray-600 mb-10 animate-fade-in-up delay-500">Transforming data into clear, actionable insights with expertise in Python, SQL, Power BI, and modern data visualization techniques.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center md:justify-start animate-fade-in-up delay-700">
-                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 btn-pulse transform hover:scale-105">Contact Me</a>
-                        <a href="#projects" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold hover:shadow-md transition duration-300 transform hover:scale-105">View Projects</a>
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 btn-pulse transform hover:scale-105">Hire Me</a>
+                        <a href="#projects" class="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full font-semibold hover:shadow-md transition duration-300 transform hover:scale-105">View Projects</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
@@ -299,7 +303,7 @@
                             <i class="fas fa-chart-line text-blue-600 text-3xl"></i>
                         </div>
                         <div class="absolute top-4 left-4 bg-white p-3 rounded-full shadow-lg transform -rotate-12 animate-bounce-slow delay-1000">
-                            <i class="fas fa-code text-purple-600 text-3xl"></i>
+                            <i class="fas fa-code text-violet-600 text-3xl"></i>
                         </div>
                     </div>
                 </div>
@@ -343,7 +347,7 @@
                                     <p class="text-gray-600 text-md">Maharishi Dayanand University</p>
                                     <p class="text-500 text-sm mt-1">2020 - 2023</p>
                                 </div>
-                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium border border-green-200">Top 1%</span>
+                                <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium border border-emerald-200">Top 1%</span>
                             </div>
                         </div>
                     </div>
@@ -370,9 +374,9 @@
                             </div>
                             <span class="text-gray-700 font-medium text-lg">Python</span>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-green-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-green-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-database text-green-600 text-2xl"></i>
+                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
+                            <div class="bg-emerald-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                                <i class="fas fa-database text-emerald-600 text-2xl"></i>
                             </div>
                             <span class="text-gray-700 font-medium text-lg">SQL</span>
                         </div>
@@ -382,15 +386,15 @@
                             </div>
                             <span class="text-gray-700 font-medium text-lg">JavaScript</span>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-purple-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-purple-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-html5 text-purple-600 text-2xl"></i>
+                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-violet-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
+                            <div class="bg-violet-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                                <i class="fab fa-html5 text-violet-600 text-2xl"></i>
                             </div>
                             <span class="text-gray-700 font-medium text-lg">HTML/CSS</span>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-green-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-green-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-file-excel text-green-600 text-2xl"></i>
+                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
+                            <div class="bg-emerald-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                                <i class="fas fa-file-excel text-emerald-600 text-2xl"></i>
                             </div>
                             <span class="text-gray-700 font-medium text-lg">Excel</span>
                         </div>
@@ -400,7 +404,7 @@
                 <!-- Tools & Frameworks -->
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <i class="fas fa-tools mr-4 text-purple-600 text-3xl"></i> Tools & Frameworks
+                        <i class="fas fa-tools mr-4 text-violet-600 text-3xl"></i> Tools & Frameworks
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
@@ -409,15 +413,15 @@
                             </div>
                             <span class="text-gray-700 font-medium text-lg">Power BI</span>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-purple-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-purple-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-google text-purple-600 text-2xl"></i>
+                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-violet-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
+                            <div class="bg-violet-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                                <i class="fab fa-google text-violet-600 text-2xl"></i>
                             </div>
                             <span class="text-gray-700 font-medium text-lg">Google Cloud</span>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-green-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-green-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-git-alt text-green-600 text-2xl"></i>
+                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
+                            <div class="bg-emerald-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                                <i class="fab fa-git-alt text-emerald-600 text-2xl"></i>
                             </div>
                             <span class="text-gray-700 font-medium text-lg">Git</span>
                         </div>
@@ -453,12 +457,12 @@
                         <h4 class="font-bold text-blue-800 mb-2 text-lg">ETL Processes</h4>
                         <p class="text-md text-gray-700">Expert in Extraction, Transformation, and Loading of large datasets for effective analysis.</p>
                     </div>
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
-                        <h4 class="font-bold text-purple-800 mb-2 text-lg">Data Cleaning & Preprocessing</h4>
+                    <div class="bg-gradient-to-br from-violet-50 to-violet-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
+                        <h4 class="font-bold text-violet-800 mb-2 text-lg">Data Cleaning & Preprocessing</h4>
                         <p class="text-md text-gray-700">Proficient in identifying and correcting corrupt, inaccurate, or irrelevant data points.</p>
                     </div>
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
-                        <h4 class="font-bold text-green-800 mb-2 text-lg">Statistical Analysis</h4>
+                    <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
+                        <h4 class="font-bold text-emerald-800 mb-2 text-lg">Statistical Analysis</h4>
                         <p class="text-md text-gray-700">Skilled in applying statistical methods and models to derive meaningful insights from data.</p>
                     </div>
                     <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
@@ -478,7 +482,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Project 1 -->
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-56 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center p-6">
+                    <div class="h-56 bg-gradient-to-r from-blue-500 to-violet-600 flex items-center justify-center p-6">
                         <i class="fas fa-users text-white text-7xl opacity-80"></i>
                     </div>
                     <div class="p-8">
@@ -486,8 +490,8 @@
                         <p class="text-gray-600 mb-5 leading-relaxed">Analyzed 3,500+ hours of student social media data to uncover crucial links between digital habits, mental health, and academic performance, providing actionable insights for educational interventions.</p>
                         <div class="flex flex-wrap gap-3 mb-5">
                             <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">Python</span>
-                            <span class="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-medium">Pandas</span>
-                            <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-medium">Power BI</span>
+                            <span class="bg-violet-100 text-violet-800 px-4 py-1.5 rounded-full text-sm font-medium">Pandas</span>
+                            <span class="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-medium">Power BI</span>
                             <span class="bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-sm font-medium">Data Visualization</span>
                         </div>
                         <a href="https://github.com/sarthak20244/Social-Media-Analysis" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors duration-300">
@@ -498,7 +502,7 @@
                 
                 <!-- Project 2 -->
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-56 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center p-6">
+                    <div class="h-56 bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center p-6">
                         <i class="fas fa-chart-line text-white text-7xl opacity-80"></i>
                     </div>
                     <div class="p-8">
@@ -507,8 +511,8 @@
                         <div class="flex flex-wrap gap-3 mb-5">
                             <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">SQL</span>
                             <span class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-sm font-medium">Python</span>
-                            <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-medium">Power BI</span>
-                            <span class="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-medium">Forecasting</span>
+                            <span class="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-medium">Power BI</span>
+                            <span class="bg-violet-100 text-violet-800 px-4 py-1.5 rounded-full text-sm font-medium">Forecasting</span>
                         </div>
                         <a href="https://github.com/sarthak20244/Macroeconomic_Analysis_Forecasting" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors duration-300">
                             View on GitHub <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -518,7 +522,7 @@
             </div>
             
             <div class="mt-16 text-center">
-                <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 border-2 border-gray-300 shadow-md text-lg font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 transition duration-300 transform hover:scale-105 hover:shadow-lg">
+                <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 border-2 border-emerald-500 shadow-md text-lg font-medium rounded-full text-emerald-600 bg-white hover:bg-emerald-50 transition duration-300 transform hover:scale-105 hover:shadow-lg">
                     <i class="fab fa-github mr-3 text-xl"></i> View All Projects on GitHub
                 </a>
             </div>
@@ -585,16 +589,16 @@
                         <h4 class="font-bold text-gray-800 text-lg mb-1">Advanced Excel</h4>
                         <p class="text-md text-gray-600">Codebasics</p>
                     </div>
-                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-purple-400">
-                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
-                            <i class="fas fa-chart-pie text-purple-600 text-3xl"></i>
+                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-violet-400">
+                        <div class="bg-violet-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                            <i class="fas fa-chart-pie text-violet-600 text-3xl"></i>
                         </div>
                         <h4 class="font-bold text-gray-800 text-lg mb-1">Power BI</h4>
                         <p class="text-md text-gray-600">Data Analytics 2.0</p>
                     </div>
-                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-green-400">
-                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
-                            <i class="fab fa-python text-green-600 text-3xl"></i>
+                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-emerald-400">
+                        <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                            <i class="fab fa-python text-emerald-600 text-3xl"></i>
                         </div>
                         <h4 class="font-bold text-gray-800 text-lg mb-1">Python</h4>
                         <p class="text-md text-gray-600">Beginner to Advanced</p>
@@ -633,8 +637,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="bg-purple-100 p-4 rounded-full mr-4 shadow-md">
-                                        <i class="fas fa-phone-alt text-purple-600 text-xl"></i>
+                                    <div class="bg-violet-100 p-4 rounded-full mr-4 shadow-md">
+                                        <i class="fas fa-phone-alt text-violet-600 text-xl"></i>
                                     </div>
                                     <div>
                                         <h4 class="font-medium text-gray-700 text-lg">Phone</h4>
@@ -643,8 +647,8 @@
                                 </div>
                                 
                                 <div class="flex items-center">
-                                    <div class="bg-green-100 p-4 rounded-full mr-4 shadow-md">
-                                        <i class="fab fa-github text-green-600 text-xl"></i>
+                                    <div class="bg-emerald-100 p-4 rounded-full mr-4 shadow-md">
+                                        <i class="fab fa-github text-emerald-600 text-xl"></i>
                                     </div>
                                     <div>
                                         <h4 class="font-medium text-gray-700 text-lg">GitHub</h4>
