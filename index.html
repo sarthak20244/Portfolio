@@ -104,7 +104,8 @@
             position: relative; /* Needed for pseudo-element positioning */
             z-index: 1;
             box-sizing: border-box; 
-            line-height: 1.2; 
+            line-height: 1.5; /* Increased line-height for better character display */
+            padding-bottom: 5px; /* Added padding to prevent clipping of descenders */
             /* No initial width or animation here, controlled by JS */
         }
 
@@ -280,7 +281,7 @@
                     <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-2 animate-fade-in-up delay-100">
                         Hi! I'm
                     </h1>
-                    <h2 class="typewriter text-4xl md:text-6xl font-extrabold text-blue-600 leading-tight mb-4 animate-fade-in-up delay-200">
+                    <h2 id="name-typewriter" class="typewriter text-4xl md:text-6xl font-extrabold text-blue-600 leading-tight mb-4 animate-fade-in-up delay-200">
                         Sarthak Choubey
                     </h2>
                     <h2 class="text-2xl md:text-4xl font-semibold text-gray-700 mb-6 animate-fade-in-up delay-300">
@@ -777,26 +778,33 @@
             skillsObserver.observe(skillsSection);
 
             // Typewriter effect for "Sarthak Choubey"
-            const typewriterElement = document.querySelector('.typewriter');
-            const textToType = typewriterElement.textContent; // Get the full text
-            typewriterElement.textContent = ''; // Clear it initially
+            const nameTypewriterElement = document.getElementById('name-typewriter');
+            const nameTextToType = nameTypewriterElement.textContent;
+            nameTypewriterElement.textContent = ''; // Clear it initially
 
-            let charIndex = 0;
-            const typingSpeed = 30; // milliseconds per character (much faster)
+            const typingSpeed = 30; // milliseconds per character
 
-            function typeCharacter() {
-                if (charIndex < textToType.length) {
-                    typewriterElement.textContent += textToType.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeCharacter, typingSpeed);
-                } else {
-                    // Typing complete, add blinking cursor
-                    typewriterElement.classList.add('has-cursor');
+            function typeText(element, text, callback) {
+                let charIndex = 0;
+                function typeChar() {
+                    if (charIndex < text.length) {
+                        element.textContent += text.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeChar, typingSpeed);
+                    } else {
+                        element.classList.add('has-cursor'); // Keep the blinking cursor
+                        if (callback) {
+                            callback();
+                        }
+                    }
                 }
+                typeChar();
             }
 
-            // Start typing after a short delay to allow other animations to begin
-            setTimeout(typeCharacter, 1000); // Start typing after 1 second
+            // Start typing "Sarthak Choubey"
+            setTimeout(() => {
+                typeText(nameTypewriterElement, nameTextToType);
+            }, 1000); // Initial delay before typing starts
         });
     </script>
 </body>
