@@ -4,306 +4,691 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarthak Choubey | Data Analyst & Developer</title>
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Tailwind CSS CDN for utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons (v6.4.0 for solid and regular styles) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for SF Pro Rounded-like typography (Inter for body, Montserrat for headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for a soft, glassy, and vibrant color palette inspired by iOS 26 */
         :root {
-            --primary-blue: #3b82f6; /* Tailwind blue-600 */
-            --primary-blue-dark: #2563eb; /* Tailwind blue-700 */
-            /* New accent colors for more vibrancy */
-            --accent-emerald: #10B981; /* Tailwind emerald-500 */
-            --accent-violet: #8B5CF6; /* Tailwind violet-500 */
+            --primary-blue: #0A84FF; /* Vibrant iOS Blue for primary actions */
+            --primary-blue-light: #5AC8FA; /* Lighter shade for subtle highlights */
+            --primary-blue-dark: #0056B3; /* Darker shade for hover states */
+            --accent-green: #30D158; /* Vibrant iOS Green */
+            --accent-red: #FF3B30; /* Vibrant iOS Red */
+            --accent-purple: #5E5CE6; /* Vibrant iOS Purple */
+            --accent-orange: #FF9500; /* Vibrant iOS Orange */
 
-            --secondary-gray: #e5e7eb; /* Tailwind gray-200 */
-            --text-dark: #1f2937; /* Tailwind gray-900 */
-            --text-light: #4b5563; /* Tailwind gray-700 */
-            --bg-light: #f9fafb; /* Tailwind gray-50 */
-            --bg-dark: #f3f4f6; /* Tailwind gray-100 */
+            --text-dark: #1C1C1E; /* Dark gray for main text, high contrast */
+            --text-light: #3A3A3C; /* Medium gray for secondary text, good readability */
+            --bg-light-transparent: rgba(255, 255, 255, 0.15); /* Very light, low opacity for glassy elements */
+            --bg-dark-transparent: rgba(28, 28, 30, 0.7); /* Dark, higher opacity for footer */
+            --border-light-transparent: rgba(229, 231, 235, 0.2); /* Very subtle light border */
+            --shadow-light: rgba(0, 0, 0, 0.05); /* Light, diffused shadow */
+            --shadow-medium: rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow on hover */
+
+            /* Background gradients for the body to provide a soft, layered look */
+            --body-gradient-start: #E0EAF9; /* Very light blue tint */
+            --body-gradient-end: #F0F5FA; /* Off-white blue tint */
         }
 
+        /* Base body and heading styles, emphasizing SF Pro Rounded-like typography */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', 'Poppins', sans-serif; /* Inter for a clean, system-like feel */
             scroll-behavior: smooth;
-            background-color: var(--bg-light);
+            background: linear-gradient(135deg, var(--body-gradient-start) 0%, var(--body-gradient-end) 100%);
+            background-attachment: fixed; /* Ensures gradient stays fixed during scroll for blur effect consistency */
             color: var(--text-light);
+            line-height: 1.6;
+            /* Global transition for smooth color scheme changes (for future dark mode) */
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Bold and modern for headings */
             color: var(--text-dark);
+            font-weight: 800; /* Extra bold for prominent headings */
+            letter-spacing: -0.02em; /* Tighten kerning for a crisp look */
         }
 
-        /* Section visibility and animation */
+        /* General section padding and fade-in animation for dynamic content loading */
         section {
             padding: 80px 0;
-            opacity: 0; /* Initial state: hidden */
-            transform: translateY(30px); /* Initial state: slightly moved down */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Animation properties */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Spring-like easing */
         }
         section.visible {
-            opacity: 1; /* Target state: visible */
-            transform: translateY(0); /* Target state: original position */
-        }
-        
-        /* Hero Section Animation Keyframes */
-        @keyframes fade-in-up {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* Utility class to apply fade-in-up animation */
-        .animate-fade-in-up {
-            animation: fade-in-up 0.8s ease-out forwards;
-            opacity: 0; /* Ensure initial hidden state before animation starts */
-        }
-        /* Animation delays */
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        .delay-600 { animation-delay: 0.6s; }
-        .delay-700 { animation-delay: 0.7s; }
-        .delay-800 { animation-delay: 0.8s; }
-        .delay-900 { animation-delay: 0.9s; }
-        .delay-1000 { animation-delay: 1.0s; }
-
-
-        @keyframes infinite-scroll {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        .animate-infinite-scroll {
-            animation: infinite-scroll 2s linear infinite;
-            width: 100%;
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        /* Keyframes for the blinking cursor */
-        @keyframes blink-caret {
-            from, to { opacity: 0 }
-            50% { opacity: 1; }
-        }
-        .typewriter {
-            display: inline-block;
-            overflow: hidden; /* Hides text until typed */
-            white-space: nowrap; /* Keeps text on a single line */
-            margin: 0;
-            letter-spacing: 0.05em;
-            position: relative; /* Needed for pseudo-element positioning */
-            z-index: 1;
-            box-sizing: border-box; 
-            line-height: 1.5; /* Increased line-height for better character display */
-            padding-bottom: 5px; /* Added padding to prevent clipping of descenders */
-            /* No initial width or animation here, controlled by JS */
+        /* Navigation Bar: Signature frosted glass effect */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+            backdrop-filter: blur(20px); /* Strong blur for prominent glassy effect */
+            border-bottom: 1px solid rgba(229, 231, 235, 0.4); /* Subtle bottom border */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Light, diffused shadow */
+            height: 72px; /* Fixed height for consistency */
+            transition: background-color 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Pseudo-element for the blinking cursor */
-        .typewriter::after {
-            content: '|'; /* The cursor character */
-            display: inline-block;
-            color: var(--primary-blue); /* Cursor color */
-            margin-left: 5px; /* Space between text and cursor */
-            animation: none; /* No animation by default */
-        }
-
-        .typewriter.has-cursor::after {
-            animation: blink-caret 0.75s step-end infinite; /* Blinking cursor animation */
-        }
-
-        .typewriter span.blue-text {
-            color: var(--primary-blue);
-        }
-
-        /* Hero image float animation */
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .btn-pulse {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn-pulse:hover {
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-        }
-        
-        .skill-bar {
-            position: relative;
-            /* Removed initial width:0; if it was present, and transition should be here if you want width animation */
-        }
-        
-        .project-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Smooth transitions for all hover states */
-        a, button, .nav-link, .certification-item, .skill-item {
-            transition: all 0.3s ease;
-        }
-        
-        /* Certification hover effect */
-        .certification-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-        }
-        
+        /* Navigation links with subtle underline animation on hover */
         .nav-link {
             position: relative;
+            font-weight: 600; /* Medium-bold for readability */
+            color: var(--text-dark);
+            transition: color 0.3s ease;
         }
-        
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px; /* Thicker underline */
-            bottom: -8px; /* More space from text */
-            left: 50%; /* Start from center */
-            transform: translateX(-50%); /* Center the underline */
+            height: 2px;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: var(--primary-blue);
-            transition: width 0.3s ease;
-            border-radius: 2px;
+            transition: width 0.3s ease-in-out;
+            border-radius: 1px;
         }
-        
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
+        /* Hero Section specific styles, maintaining a dynamic background */
         #hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--secondary-gray) 100%);
+            background: linear-gradient(135deg, var(--body-gradient-start) 0%, var(--body-gradient-end) 100%);
             background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            animation: gradient-shift 15s ease infinite;
         }
-        
-        @keyframes gradient {
+        @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        .section-heading::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-dark));
-            margin: 15px auto 0;
-            border-radius: 5px;
+        /* Hero image container with refined border and shadow for a floating effect */
+        .hero-profile-image-container {
+            border: 4px solid rgba(255, 255, 255, 0.6); /* Semi-transparent white border */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            transition: all 0.4s ease-in-out;
+        }
+        .hero-profile-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        /* Form input styling */
-        .peer:focus + label {
+        /* Floating icons in hero section with glassy effect */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); } /* Increased movement for more noticeable bounce */
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 4s ease-in-out infinite; /* Slower and smoother */
+        }
+
+        /* General Card/Box Styling: Applies frosted glass to all content containers */
+        .glassy-card {
+            background-color: var(--bg-light-transparent);
+            backdrop-filter: blur(15px); /* Consistent blur for all cards */
+            border-radius: 18px; /* Smoothly rounded corners */
+            border: 1px solid var(--border-light-transparent);
+            box-shadow: 0 8px 20px var(--shadow-light);
+            transition: all 0.3s ease-in-out;
+        }
+        .glassy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow-medium);
+        }
+
+        /* Buttons with Haptic Feedback (visual simulation) */
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 9999px; /* Pill shape */
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+            transition: all 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-blue-dark);
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+            transform: translateY(-2px) scale(1.02); /* Slight scale up on hover */
+        }
+        .btn-primary:active {
+            transform: translateY(1px) scale(0.98); /* Simulates haptic press */
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            background-color: transparent;
+            padding: 14px 30px;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background-color: var(--accent-green);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+            transform: translateY(-2px) scale(1.02);
+        }
+        .btn-secondary:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 8px rgba(52, 199, 89, 0.2);
+        }
+        
+        /* Infinite scroll for skills section, with refined item styling */
+        .infinite-scroll-container {
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 2.5rem;
+        }
+        .infinite-scroll-track {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-left 40s linear infinite;
+            width: fit-content;
+        }
+        .infinite-scroll-track:hover {
+            animation-play-state: paused;
+        }
+        .infinite-scroll-track .skill-item {
+            flex-shrink: 0;
+            width: 220px; /* Consistent width for items */
+            margin-right: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1rem;
+            border-radius: 14px;
+            background-color: var(--bg-light-transparent);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light-transparent);
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+        .infinite-scroll-track .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+            border-color: rgba(0, 122, 255, 0.5);
+        }
+        .infinite-scroll-track .skill-item span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex-grow: 1;
+            color: var(--text-dark);
+            font-weight: 500; /* Medium weight for skill names */
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Project Cards: Enhanced glassy appearance and hover effects */
+        .project-card {
+            background-color: var(--bg-light-transparent);
+            backdrop-filter: blur(15px);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px var(--shadow-light);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-light-transparent);
+        }
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px var(--shadow-medium);
+            border-color: var(--primary-blue); /* Accent border on hover */
+            border-width: 2px;
+        }
+        .project-card-image-placeholder {
+            height: 224px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background-size: 200% 200%;
+            animation: gradient-shift 10s ease infinite;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.4);
+        }
+        .project-card-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+        .project-card-description {
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        /* Project Tag Styling */
+        .project-tag {
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .project-tag-blue {
+            background-color: rgba(0, 122, 255, 0.1); /* Light blue tag background */
+            color: var(--primary-blue);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+        }
+        .project-tag-violet {
+            background-color: rgba(94, 92, 230, 0.1); /* Light violet tag background */
+            color: var(--accent-purple);
+            border: 1px solid rgba(94, 92, 230, 0.2);
+        }
+        .project-tag-emerald {
+            background-color: rgba(48, 209, 88, 0.1); /* Light emerald tag background */
+            color: var(--accent-green);
+            border: 1px solid rgba(48, 209, 88, 0.2);
+        }
+        .project-tag-orange {
+            background-color: rgba(255, 149, 0, 0.1); /* Light orange tag background */
+            color: var(--accent-orange);
+            border: 1px solid rgba(255, 149, 0, 0.2);
+        }
+
+        .project-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        .project-link:hover {
+            color: var(--primary-blue-dark);
+        }
+        .project-link i {
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+            transition: transform 0.3s ease;
+        }
+        .project-link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* View All Projects Button: Consistent with primary button styling */
+        .view-all-btn {
+            background-color: var(--bg-light-transparent);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--accent-green);
+            box-shadow: 0 4px 10px rgba(52, 199, 89, 0.2);
+            color: var(--accent-green);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out; /* Adjusted transition for consistency */
+            cursor: pointer;
+        }
+        .view-all-btn:hover {
+            background-color: var(--accent-green);
+            color: #ffffff;
+            transform: translateY(-2px) scale(1.02); /* Consistent with other buttons */
+            box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4); /* Consistent with other buttons */
+        }
+        .view-all-btn:active {
+            transform: translateY(1px) scale(0.98); /* Simulates haptic press */
+            box-shadow: 0 2px 8px rgba(52, 199, 89, 0.2); /* Consistent with other buttons */
+        }
+        .view-all-btn i {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* Experience and Certification Items: Accent border and glassy effect */
+        .experience-item {
+            border-left: 4px solid var(--primary-blue); /* Accent border */
+            padding: 1.75rem;
+            border-radius: 18px;
+            background-color: var(--bg-light-transparent);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-light-transparent);
+            box-shadow: 0 8px 20px var(--shadow-light);
+            transition: all 0.3s ease-in-out;
+        }
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow-medium);
+        }
+        .experience-item span.text-blue-600 { /* For date tags */
+            background-color: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.3);
             color: var(--primary-blue);
         }
-        .peer:focus {
-            border-color: var(--primary-blue);
+        .experience-item ul li span.text-blue-500 { /* For list bullets */
+            color: var(--primary-blue);
         }
 
-        /* Custom scrollbar for aesthetic */
-        ::-webkit-scrollbar {
-            width: 10px;
+        /* Analytical Expertise Cards: Subtle gradients with glassy effect */
+        .analytical-card-gradient-blue {
+            background: linear-gradient(to bottom right, rgba(0, 122, 255, 0.1), rgba(0, 122, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            color: var(--primary-blue);
+            border-radius: 18px; /* Consistent rounded corners */
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: all 0.3s ease;
         }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-light);
+        .analytical-card-gradient-blue:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
         }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-blue);
-            border-radius: 5px;
+        .analytical-card-gradient-violet {
+            background: linear-gradient(to bottom right, rgba(94, 92, 230, 0.1), rgba(94, 92, 230, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(94, 92, 230, 0.2);
+            color: var(--accent-purple);
+            border-radius: 18px;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: all 0.3s ease;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-blue-dark);
+        .analytical-card-gradient-violet:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
+        }
+        .analytical-card-gradient-emerald {
+            background: linear-gradient(to bottom right, rgba(48, 209, 88, 0.1), rgba(48, 209, 88, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(48, 209, 88, 0.2);
+            color: var(--accent-green);
+            border-radius: 18px;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+        .analytical-card-gradient-emerald:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
+        }
+        .analytical-card-gradient-orange {
+            background: linear-gradient(to bottom right, rgba(255, 149, 0, 0.1), rgba(255, 149, 0, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 149, 0, 0.2);
+            color: var(--accent-orange);
+            border-radius: 18px;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+        .analytical-card-gradient-orange:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
+        }
+        .analytical-card-gradient-blue h4, .analytical-card-gradient-violet h4,
+        .analytical-card-gradient-emerald h4, .analytical-card-gradient-orange h4 {
+            color: inherit; /* Inherit color from parent for consistency */
+        }
+        .analytical-card-gradient-blue p, .analytical-card-gradient-violet p,
+        .analytical-card-gradient-emerald p, .analytical-card-gradient-orange p {
+            color: var(--text-light); /* Consistent text color */
+        }
+
+        /* Footer: Darker glassy effect for contrast */
+        footer {
+            background: var(--bg-dark-transparent); /* Darker transparent background */
+            backdrop-filter: blur(15px); /* Stronger blur */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8); /* Lighter text for contrast */
+            border-top-left-radius: 24px; /* Rounded top corners for footer */
+            border-top-right-radius: 24px;
+        }
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        footer a:hover {
+            color: var(--primary-blue-light);
+        }
+
+        /* Typewriter effect for hero text */
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0;
+            letter-spacing: 0.05em;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            line-height: 1.5;
+            padding-bottom: 5px;
+            min-height: 1.5em; /* Ensure enough height for the text to appear */
+        }
+        .typewriter::after {
+            content: '|';
+            display: inline-block;
+            color: var(--primary-blue);
+            margin-left: 5px;
+            animation: none;
+        }
+        .typewriter.has-cursor::after {
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { opacity: 0 }
+            50% { opacity: 1; }
+        }
+
+        /* Focus outline for accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--primary-blue);
+            outline-offset: 2px;
+            border-radius: 4px; /* Apply to elements for consistent focus rings */
+        }
+        .rounded-full:focus-visible, .rounded-lg:focus-visible, .rounded-xl:focus-visible {
+            outline-offset: 4px; /* Adjust for larger rounded elements */
+            border-radius: inherit; /* Maintain original border-radius */
+        }
+
+        /* Mobile specific adjustments for better layout and tap targets */
+        @media (max-width: 767px) {
+            .navbar {
+                height: 60px; /* Slightly smaller navbar on mobile */
+            }
+            .nav-link {
+                font-size: 1rem; /* Smaller font for mobile nav links */
+            }
+            .btn-primary, .btn-secondary {
+                padding: 12px 24px; /* Smaller padding for mobile buttons */
+                font-size: 0.95rem;
+            }
+            h1 { font-size: 3rem; } /* Adjust heading sizes for mobile */
+            h2 { font-size: 2rem; }
+            .skill-item {
+                width: 180px; /* Smaller skill items on mobile */
+            }
+        }
+
+        /* Generic Icon Bubble Styling (replaces previous specific icon backgrounds) */
+        .icon-bubble {
+            background-color: var(--bg-light-transparent);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-light-transparent);
+            border-radius: 9999px; /* Always round */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0; /* Prevent shrinking in flex containers */
+        }
+
+        .icon-bubble:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Specific sizes for icon bubbles */
+        .icon-bubble-lg {
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+        }
+        .icon-bubble-md {
+            width: 56px; /* w-14 h-14 */
+            height: 56px;
+            font-size: 24px; /* text-2xl */
+        }
+        .icon-bubble-sm {
+            width: 48px; /* p-4 rounded-full */
+            height: 48px;
+            font-size: 20px; /* text-xl */
+        }
+        .icon-bubble-xs {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        /* Colorful gradients for icon bubbles */
+        .icon-bubble-blue-gradient {
+            background: linear-gradient(to bottom right, rgba(10, 132, 255, 0.7), rgba(10, 132, 255, 0.6)); /* Increased opacity */
+            border-color: rgba(10, 132, 255, 0.8); /* Increased opacity */
+        }
+        .icon-bubble-violet-gradient {
+            background: linear-gradient(to bottom right, rgba(94, 92, 230, 0.7), rgba(94, 92, 230, 0.6));
+            border-color: rgba(94, 92, 230, 0.8);
+        }
+        .icon-bubble-emerald-gradient {
+            background: linear-gradient(to bottom right, rgba(48, 209, 88, 0.7), rgba(48, 209, 88, 0.6));
+            border-color: rgba(48, 209, 88, 0.8);
+        }
+        .icon-bubble-yellow-gradient {
+            background: linear-gradient(to bottom right, rgba(255, 149, 0, 0.7), rgba(255, 149, 0, 0.6));
+            border-color: rgba(255, 149, 0, 0.8);
+        }
+        .icon-bubble-pink-gradient {
+            background: linear-gradient(to bottom right, rgba(255, 45, 85, 0.7), rgba(255, 45, 85, 0.6));
+            border-color: rgba(255, 45, 85, 0.8);
+        }
+        .icon-bubble-teal-gradient {
+            background: linear-gradient(to bottom right, rgba(90, 200, 250, 0.7), rgba(90, 200, 250, 0.6));
+            border-color: rgba(90, 200, 250, 0.8);
+        }
+        .icon-bubble-red-gradient {
+            background: linear-gradient(to bottom right, rgba(255, 59, 48, 0.7), rgba(255, 59, 48, 0.6));
+            border-color: rgba(255, 59, 48, 0.8);
+        }
+        .icon-bubble-indigo-gradient {
+            background: linear-gradient(to bottom right, rgba(88, 86, 214, 0.7), rgba(88, 86, 214, 0.6));
+            border-color: rgba(88, 86, 214, 0.8);
+        }
+        .icon-bubble-gray-gradient {
+            background: linear-gradient(to bottom right, rgba(142, 142, 147, 0.7), rgba(142, 142, 147, 0.6));
+            border-color: rgba(142, 142, 147, 0.8);
+        }
+        .icon-bubble-green-gradient {
+            background: linear-gradient(to bottom right, rgba(52, 199, 89, 0.7), rgba(52, 199, 89, 0.6));
+            border-color: rgba(52, 199, 89, 0.8);
+        }
+        .icon-bubble-purple-gradient {
+            background: linear-gradient(to bottom right, rgba(175, 82, 222, 0.7), rgba(175, 82, 222, 0.6));
+            border-color: rgba(175, 82, 222, 0.8);
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-lg z-50 py-2">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
+    <nav class="fixed w-full z-50 navbar" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex justify-between h-full items-center">
                 <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">Sarthak Choubey</a>
+                    <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300" aria-label="Sarthak Choubey Home">Sarthak Choubey</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-10">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium text-lg">About</a>
-                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 font-medium text-lg">Skills</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 font-medium text-lg">Projects</a>
-                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600 font-medium text-lg">Experience</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 font-medium text-lg">Contact</a>
+                    <a href="#about" class="nav-link text-lg">About</a>
+                    <a href="#skills" class="nav-link text-lg">Skills</a>
+                    <a href="#projects" class="nav-link text-lg">Projects</a>
+                    <a href="#experience" class="nav-link text-lg">Experience</a>
+                    <a href="#contact" class="nav-link text-lg">Contact</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2" aria-label="Open mobile menu">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
                     </button>
                 </div>
             </div>
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl py-2">
+        <div id="mobile-menu" class="hidden md:hidden bg-white/80 backdrop-blur-md shadow-xl py-2" role="menu" aria-labelledby="menu-btn">
             <div class="px-2 pt-2 pb-3 space-y-2 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200">Skills</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200">Projects</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200">Experience</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200">Contact</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200" role="menuitem">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200" role="menuitem">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200" role="menuitem">Projects</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200" role="menuitem">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 flex items-center min-h-screen">
+    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 flex items-center min-h-screen" aria-label="Introduction">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                 <div class="md:w-1/2 text-center md:text-left">
                     <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-2 animate-fade-in-up delay-100">
                         Hi! I'm
                     </h1>
+                    <!-- Typewriter effect for name and roles -->
                     <h2 id="name-typewriter" class="typewriter text-4xl md:text-6xl font-extrabold text-blue-600 leading-tight mb-4 animate-fade-in-up delay-200">
-                        Sarthak Choubey
+                        <!-- Content will be dynamically typed here -->
                     </h2>
-                    <h2 class="text-2xl md:text-4xl font-semibold text-gray-700 mb-6 animate-fade-in-up delay-300">
-                        Data Analyst & Developer
-                    </h2>
+                    <!-- Removed the static "Data Analyst & Developer" h2 as it's now part of the typing effect -->
                     <p class="text-lg md:text-xl text-gray-600 mb-10 animate-fade-in-up delay-500">Transforming data into clear, actionable insights with expertise in Python, SQL, Power BI, and modern data visualization techniques.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center md:justify-start animate-fade-in-up delay-700">
-                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300 btn-pulse transform hover:scale-105 w-full text-center sm:max-w-[180px]">Hire Me</a>
-                        <a href="#projects" class="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full font-semibold hover:shadow-md transition duration-300 transform hover:scale-105 w-full text-center sm:max-w-[180px]">View Projects</a>
+                        <a href="#contact" class="btn-primary" role="button">Hire Me</a>
+                        <a href="#projects" class="btn-secondary" role="button">View Projects</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
                     <div class="relative">
-                        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white animate-float">
+                        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl hero-profile-image-container animate-float">
                             <img src="https://raw.githubusercontent.com/sarthak20244/Portfolio/main/1615828488282_PhotoGrid-Picsart-BackgroundChanger.png" 
                                 alt="Sarthak Choubey" 
-                                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                                loading="lazy"> <!-- Added loading="lazy" for performance -->
                         </div>
-                        <div class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg transform rotate-6 animate-bounce-slow delay-900">
+                        <!-- Hero section floating icons -->
+                        <div class="absolute bottom-4 right-4 p-3 rounded-full icon-bubble icon-bubble-lg icon-bubble-blue-gradient transform rotate-6 animate-bounce-slow delay-900" aria-hidden="true">
                             <i class="fas fa-chart-line text-blue-600 text-3xl"></i>
                         </div>
-                        <div class="absolute top-4 left-4 bg-white p-3 rounded-full shadow-lg transform -rotate-12 animate-bounce-slow delay-1000">
+                        <div class="absolute top-4 left-4 p-3 rounded-full icon-bubble icon-bubble-lg icon-bubble-violet-gradient transform -rotate-12 animate-bounce-slow delay-1000" aria-hidden="true">
                             <i class="fas fa-code text-violet-600 text-3xl"></i>
                         </div>
                     </div>
@@ -313,43 +698,47 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-16" aria-labelledby="about-heading">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 section-heading">About Me</h2>
+            <h2 id="about-heading" class="text-4xl font-bold text-center mb-12 section-heading">About Me</h2>
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2 text-lg text-gray-600 md:pr-8 leading-relaxed">
                     <div class="flex items-start mb-6">
-                        <i class="fas fa-chart-pie text-blue-600 text-4xl mr-4 mt-1"></i>
+                        <div class="icon-bubble icon-bubble-sm mr-4 mt-1 icon-bubble-blue-gradient" aria-hidden="true">
+                            <i class="fas fa-chart-pie text-blue-600"></i>
+                        </div>
                         <p>I am a passionate <strong>Data Analyst & Developer</strong> who transforms raw data into clear, actionable insights by leveraging expertise in <strong>Python</strong>, <strong>SQL</strong>, and <strong>Power BI</strong>. My work focuses on building efficient <strong>ETL processes</strong>, cleaning complex datasets, performing rigorous <strong>statistical analysis</strong>, and creating <strong>interactive dashboards</strong> to empower smarter decision-making.</p>
                     </div>
-                    <div class="flex space-x-4 mt-8 pl-14">
-                        <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 flex items-center shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                            <i class="fab fa-github mr-2 text-xl"></i> GitHub
+                    <div class="flex flex-wrap space-x-4 mt-8 pl-14">
+                        <!-- Removed custom Tailwind classes to use base .btn-primary styling -->
+                        <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="btn-primary" role="link" aria-label="Visit Sarthak Choubey's GitHub profile">
+                            <i class="fab fa-github mr-2 text-xl" aria-hidden="true"></i> GitHub
                         </a>
-                        <a href="https://www.linkedin.com/in/sarthak-choubey-01/" target="_blank" rel="noopener noreferrer" class="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300 flex items-center shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                            <i class="fab fa-linkedin-in mr-2 text-xl"></i> LinkedIn
+                        <!-- Removed custom Tailwind classes to use base .btn-primary styling -->
+                        <a href="https://www.linkedin.com/in/sarthak-choubey-01/" target="_blank" rel="noopener noreferrer" class="btn-primary mt-4 sm:mt-0" role="link" aria-label="Visit Sarthak Choubey's LinkedIn profile">
+                            <i class="fab fa-linkedin-in mr-2 text-xl" aria-hidden="true"></i> LinkedIn
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
+                <div class="md:w-1/2 glassy-card p-8" role="region" aria-labelledby="education-heading">
+                    <h3 id="education-heading" class="text-2xl font-semibold mb-6">Education</h3>
                     <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                        <div class="glassy-card p-5 !shadow-sm !border-none">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-lg">Master of Computer Application</h4>
-                                    <p class="text-gray-600 text-md">Jagan Institute of Management Studies</p>
-                                    <p class="text-gray-500 text-sm mt-1">2023 - 2025</p>
+                                    <h4 class="font-bold text-lg">Master of Computer Application</h4>
+                                    <p class="text-md">Jagan Institute of Management Studies</p>
+                                    <p class="text-sm mt-1 text-gray-500">2023 - 2025</p>
                                 </div>
                                 <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium border border-blue-200">GPA: 8.9</span>
                             </div>
                         </div>
-                        <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                        <div class="glassy-card p-5 !shadow-sm !border-none">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-lg">Bachelor of Computer Application</h4>
-                                    <p class="text-gray-600 text-md">Maharishi Dayanand University</p>
-                                    <p class="text-500 text-sm mt-1">2020 - 2023</p>
+                                    <h4 class="font-bold text-lg">Bachelor of Computer Application</h4>
+                                    <p class="text-md">Maharishi Dayanand University</p>
+                                    <p class="text-sm mt-1 text-gray-500">2020 - 2023</p>
                                 </div>
                                 <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium border border-emerald-200">Top 1%</span>
                             </div>
@@ -361,116 +750,293 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-50">
+    <section id="skills" class="py-16" aria-labelledby="skills-heading">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 section-heading">Skills & Expertise</h2>
+            <h2 id="skills-heading" class="text-4xl font-bold text-center mb-12 section-heading">Skills & Expertise</h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-                <!-- Languages -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <i class="fas fa-code mr-4 text-blue-600 text-3xl"></i> Languages
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-python text-blue-600 text-2xl"></i>
+            <!-- Languages Scrolling Track -->
+            <div class="glassy-card p-8 mb-10" role="region" aria-labelledby="languages-heading">
+                <h3 id="languages-heading" class="text-2xl font-semibold mb-6 flex items-center">
+                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-blue-gradient" aria-hidden="true">
+                        <i class="fas fa-code text-blue-600"></i>
+                    </div>
+                    Languages
+                </h3>
+                <div class="infinite-scroll-container">
+                    <div class="infinite-scroll-track" aria-live="off">
+                        <!-- Language Skill Items (duplicated for seamless scroll) -->
+                        <div class="flex">
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-python text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Python</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">Python</span>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-emerald-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-database text-emerald-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">SQL</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-js text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">JavaScript</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-file-alt text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">TypeScript</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-violet-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-html5 text-violet-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">HTML</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-pink-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-css3-alt text-pink-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">CSS</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-database text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">BigQuery</span>
+                            </div>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-emerald-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-database text-emerald-600 text-2xl"></i>
+                        <div class="flex" aria-hidden="true"> <!-- Duplicated for visual seamlessness, hidden from screen readers -->
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-python text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Python</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">SQL</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-yellow-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-yellow-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-js text-yellow-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-emerald-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-database text-emerald-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">SQL</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">JavaScript</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-violet-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-violet-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-html5 text-violet-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-js text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">JavaScript</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">HTML/CSS</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-emerald-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-file-excel text-emerald-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-file-alt text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">TypeScript</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">Excel</span>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-violet-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-html5 text-violet-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">HTML</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-pink-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-css3-alt text-pink-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">CSS</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-database text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">BigQuery</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Tools & Frameworks -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <i class="fas fa-tools mr-4 text-violet-600 text-3xl"></i> Tools & Frameworks
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+            </div>
+            
+            <!-- Tools & Frameworks Scrolling Track -->
+            <div class="glassy-card p-8 mb-10" role="region" aria-labelledby="tools-heading">
+                <h3 id="tools-heading" class="text-2xl font-semibold mb-6 flex items-center">
+                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-purple-gradient" aria-hidden="true">
+                        <i class="fas fa-tools text-purple-600"></i>
+                    </div>
+                    Tools & Frameworks
+                </h3>
+                <div class="infinite-scroll-container">
+                    <div class="infinite-scroll-track" aria-live="off">
+                        <!-- Tool Skill Items (duplicated for seamless scroll) -->
+                        <div class="flex">
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-chart-line text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Power BI</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">Power BI</span>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-violet-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-google text-violet-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Google Cloud Platform</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-emerald-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-git-alt text-emerald-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Git</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-red-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fab fa-wordpress text-red-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">WordPress</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-indigo-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-project-diagram text-indigo-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">n8n</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-bolt text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Vite</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-teal-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-wind text-teal-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Tailwind</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-green-gradient group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">
+                                    <i class="fas fa-calculator text-green-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Numpy</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-purple-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-table text-purple-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Pandas</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-red-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-chart-area text-red-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Matplotlib</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-paper-plane text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Postman</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-gray-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-github text-gray-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">GitHub</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-code-branch text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">VS Code</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-purple-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-chart-bar text-purple-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Looker Studio</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-green-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-file-spreadsheet text-green-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Google Sheets</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item" role="listitem">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-red-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-robot text-red-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Agentic AI</span>
+                            </div>
                         </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-violet-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-violet-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-google text-violet-600 text-2xl"></i>
+                        <div class="flex" aria-hidden="true"> <!-- Duplicated for visual seamlessness, hidden from screen readers -->
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-python text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">Python</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">Google Cloud</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-emerald-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-git-alt text-emerald-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-emerald-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-database text-emerald-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">SQL</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">Git</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-yellow-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-yellow-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-database text-yellow-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-js text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">JavaScript</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">BigQuery</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-red-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-red-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fab fa-wordpress text-red-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-blue-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-file-alt text-blue-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">TypeScript</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">WordPress</span>
-                        </div>
-                        <div class="flex items-center bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-400 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-md group skill-item">
-                            <div class="bg-indigo-100 p-3 rounded-full mr-4 w-14 h-14 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                                <i class="fas fa-project-diagram text-indigo-600 text-2xl"></i>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-violet-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-html5 text-violet-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">HTML</span>
                             </div>
-                            <span class="text-gray-700 font-medium text-lg">n8n</span>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-pink-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fab fa-css3-alt text-pink-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">CSS</span>
+                            </div>
+                            <div class="flex items-center p-4 rounded-lg group skill-item">
+                                <div class="icon-bubble icon-bubble-md mr-4 icon-bubble-yellow-gradient group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-database text-yellow-600"></i>
+                                </div>
+                                <span class="font-medium text-lg">BigQuery</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Analytical Expertise -->
-            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-chart-bar mr-4 text-orange-600 text-3xl"></i> Analytical Expertise
+            <div class="glassy-card p-8" role="region" aria-labelledby="analytical-expertise-heading">
+                <h3 id="analytical-expertise-heading" class="text-2xl font-semibold mb-6 flex items-center">
+                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-orange-gradient" aria-hidden="true">
+                        <i class="fas fa-chart-bar text-orange-600"></i>
+                    </div>
+                    Analytical Expertise
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
-                        <h4 class="font-bold text-blue-800 mb-2 text-lg">ETL Processes</h4>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 analytical-card-gradient-blue" role="listitem">
+                        <h4 class="font-bold text-lg">ETL Processes</h4>
                         <p class="text-md text-gray-700">Expert in Extraction, Transformation, and Loading of large datasets for effective analysis.</p>
                     </div>
-                    <div class="bg-gradient-to-br from-violet-50 to-violet-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
-                        <h4 class="font-bold text-violet-800 mb-2 text-lg">Data Cleaning & Preprocessing</h4>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 analytical-card-gradient-violet" role="listitem">
+                        <h4 class="font-bold text-lg">Data Preprocessing</h4>
                         <p class="text-md text-gray-700">Proficient in identifying and correcting corrupt, inaccurate, or irrelevant data points.</p>
                     </div>
-                    <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
-                        <h4 class="font-bold text-emerald-800 mb-2 text-lg">Statistical Analysis</h4>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 analytical-card-gradient-emerald" role="listitem">
+                        <h4 class="font-bold text-lg">Statistical Analysis</h4>
                         <p class="text-md text-gray-700">Skilled in applying statistical methods and models to derive meaningful insights from data.</p>
                     </div>
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300">
-                        <h4 class="font-bold text-orange-800 mb-2 text-lg">Data Visualization & Reporting</h4>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 analytical-card-gradient-orange" role="listitem">
+                        <h4 class="font-bold text-lg">Data Visualization</h4>
                         <p class="text-md text-gray-700">Creating intuitive and interactive dashboards and reports using tools like Power BI.</p>
                     </div>
                 </div>
@@ -479,103 +1045,107 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-white">
+    <section id="projects" class="py-16" aria-labelledby="projects-heading">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 section-heading">Featured Projects</h2>
+            <h2 id="projects-heading" class="text-4xl font-bold text-center mb-12 section-heading">Featured Projects</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-56 bg-gradient-to-r from-blue-500 to-violet-600 flex items-center justify-center p-6">
+                <div class="project-card" role="article" aria-labelledby="project1-title">
+                    <div class="project-card-image-placeholder bg-gradient-to-r from-blue-500 to-violet-600" aria-hidden="true">
                         <i class="fas fa-users text-white text-7xl opacity-80"></i>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Social Media Usage & Impact Analysis</h3>
-                        <p class="text-gray-600 mb-5 leading-relaxed">Analyzed 3,500+ hours of student social media data to uncover crucial links between digital habits, mental health, and academic performance, providing actionable insights for educational interventions.</p>
-                        <div class="flex flex-wrap gap-3 mb-5">
-                            <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">Python</span>
-                            <span class="bg-violet-100 text-violet-800 px-4 py-1.5 rounded-full text-sm font-medium">Pandas</span>
-                            <span class="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-medium">Power BI</span>
-                            <span class="bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-sm font-medium">Data Visualization</span>
+                    <div class="project-card-content">
+                        <div>
+                            <h3 id="project1-title" class="project-card-title">Social Media Usage & Impact Analysis</h3>
+                            <p class="project-card-description">Analyzed 3,500+ hours of student social media data to uncover crucial links between digital habits, mental health, and academic performance, providing actionable insights for educational interventions.</p>
                         </div>
-                        <a href="https://github.com/sarthak20244/Social-Media-Analysis" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors duration-300">
-                            View on GitHub <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        <div class="project-tags" role="list" aria-label="Project 1 Technologies">
+                            <span class="project-tag project-tag-blue" role="listitem">Python</span>
+                            <span class="project-tag project-tag-violet" role="listitem">Pandas</span>
+                            <span class="project-tag project-tag-emerald" role="listitem">Power BI</span>
+                            <span class="project-tag project-tag-orange" role="listitem">Data Visualization</span>
+                        </div>
+                        <a href="https://github.com/sarthak20244/Social-Media-Analysis" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Social Media Usage & Impact Analysis project on GitHub">
+                            View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="h-56 bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center p-6">
+                <div class="project-card" role="article" aria-labelledby="project2-title">
+                    <div class="project-card-image-placeholder bg-gradient-to-r from-emerald-500 to-teal-600" aria-hidden="true">
                         <i class="fas fa-chart-line text-white text-7xl opacity-80"></i>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Macroeconomic Forecasting & Analysis</h3>
-                        <p class="text-gray-600 mb-5 leading-relaxed">Developed a robust model to forecast India's GDP and key economic indicators, utilizing advanced SQL for data processing, Python for predictive modeling, and interactive Power BI dashboards for clear financial insights.</p>
-                        <div class="flex flex-wrap gap-3 mb-5">
-                            <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium">SQL</span>
-                            <span class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-sm font-medium">Python</span>
-                            <span class="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-medium">Power BI</span>
-                            <span class="bg-violet-100 text-violet-800 px-4 py-1.5 rounded-full text-sm font-medium">Forecasting</span>
+                    <div class="project-card-content">
+                        <div>
+                            <h3 id="project2-title" class="project-card-title">Macroeconomic Forecasting & Analysis</h3>
+                            <p class="project-card-description">Developed a robust model to forecast India's GDP and key economic indicators, utilizing advanced SQL for data processing, Python for predictive modeling, and interactive Power BI dashboards for clear financial insights.</p>
                         </div>
-                        <a href="https://github.com/sarthak20244/Macroeconomic_Analysis_Forecasting" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors duration-300">
-                            View on GitHub <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        <div class="project-tags" role="list" aria-label="Project 2 Technologies">
+                            <span class="project-tag project-tag-blue">SQL</span>
+                            <span class="project-tag project-tag-violet">Python</span>
+                            <span class="project-tag project-tag-emerald">Power BI</span>
+                            <span class="project-tag project-tag-orange">Forecasting</span>
+                        </div>
+                        <a href="https://github.com/sarthak20244/Macroeconomic_Analysis_Forecasting" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Macroeconomic Forecasting & Analysis project on GitHub">
+                            View on GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
             </div>
             
             <div class="mt-16 text-center">
-                <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 border-2 border-emerald-500 shadow-md text-lg font-medium rounded-full text-emerald-600 bg-white hover:bg-emerald-50 transition duration-300 transform hover:scale-105 hover:shadow-lg">
-                    <i class="fab fa-github mr-3 text-xl"></i> View All Projects on GitHub
+                <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="view-all-btn" role="button" aria-label="View all projects on GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i> View All Projects on GitHub
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-gray-50"> 
+    <section id="experience" class="py-16" aria-labelledby="experience-heading"> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 section-heading">Professional Journey</h2>
+            <h2 id="experience-heading" class="text-4xl font-bold text-center mb-12 section-heading">Professional Journey</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Experience 1 -->
-                <div class="bg-white p-7 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-100">
+                <div class="experience-item animate-fade-in-up delay-100" role="listitem">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Freelance Data Analyst</h3>
                     <p class="text-gray-600 mb-3 text-md">Self-employed</p>
                     <span class="text-sm text-blue-600 font-semibold bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Aug 2024 – Present</span>
-                    <ul class="mt-4 text-gray-700 list-disc list-inside">
+                    <ul class="mt-4 text-gray-700 list-disc list-inside" aria-label="Responsibilities">
                         <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 mt-1">•</span>
+                            <span class="text-blue-500 mr-2 mt-1" aria-hidden="true">•</span>
                             <span>Created ETL pipelines and cleaned large datasets</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 mt-1">•</span>
+                            <span class="text-blue-500 mr-2 mt-1" aria-hidden="true">•</span>
                             <span>Developed interactive dashboards</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 mt-1">•</span>
+                            <span class="text-blue-500 mr-2 mt-1" aria-hidden="true">•</span>
                             <span>Automated data workflows</span>
                         </li>
                     </ul>
                 </div>
                 
                 <!-- Experience 2 -->
-                <div class="bg-white p-7 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-300">
+                <div class="experience-item animate-fade-in-up delay-300" role="listitem">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Data Analyst Intern</h3>
                     <p class="text-gray-600 mb-3 text-md">Codebasics</p>
                     <span class="text-sm text-blue-600 font-semibold bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Jun 2024 – Aug 2024</span>
-                    <ul class="mt-4 text-gray-700 list-disc list-inside">
+                    <ul class="mt-4 text-gray-700 list-disc list-inside" aria-label="Responsibilities">
                         <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 mt-1">•</span>
+                            <span class="text-blue-500 mr-2 mt-1" aria-hidden="true">•</span>
                             <span>Streamlined data workflows</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 mt-1">•</span>
+                            <span class="text-blue-500 mr-2 mt-1" aria-hidden="true">•</span>
                             <span>Built automated reporting dashboards</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-blue-500 mr-2 mt-1">•</span>
+                            <span class="text-blue-500 mr-2 mt-1" aria-hidden="true">•</span>
                             <span>Collaborated with cross-functional teams</span>
                         </li>
                     </ul>
@@ -583,33 +1153,38 @@
             </div>
             
             <!-- Certifications -->
-            <div class="mt-20 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-8 flex items-center"><i class="fas fa-certificate mr-4 text-orange-500 text-3xl"></i> Certifications</h3>
+            <div class="mt-20 glassy-card p-8" role="region" aria-labelledby="certifications-heading">
+                <h3 id="certifications-heading" class="text-2xl font-semibold mb-8 flex items-center">
+                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-orange-gradient" aria-hidden="true">
+                        <i class="fas fa-certificate text-orange-600"></i>
+                    </div>
+                    Certifications
+                </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-blue-400">
-                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
-                            <i class="fas fa-file-excel text-blue-600 text-3xl"></i>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 glassy-card" role="listitem" aria-label="Advanced Excel Certification">
+                        <div class="icon-bubble icon-bubble-lg mb-4 mx-auto icon-bubble-blue-gradient" aria-hidden="true">
+                            <i class="fas fa-file-excel text-blue-600"></i>
                         </div>
                         <h4 class="font-bold text-gray-800 text-lg mb-1">Advanced Excel</h4>
                         <p class="text-md text-gray-600">Codebasics</p>
                     </div>
-                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-violet-400">
-                        <div class="bg-violet-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
-                            <i class="fas fa-chart-pie text-violet-600 text-3xl"></i>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 glassy-card" role="listitem" aria-label="Power BI Certification">
+                        <div class="icon-bubble icon-bubble-lg mb-4 mx-auto icon-bubble-violet-gradient" aria-hidden="true">
+                            <i class="fas fa-chart-pie text-violet-600"></i>
                         </div>
                         <h4 class="font-bold text-gray-800 text-lg mb-1">Power BI</h4>
                         <p class="text-md text-gray-600">Data Analytics 2.0</p>
                     </div>
-                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-emerald-400">
-                        <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
-                            <i class="fab fa-python text-emerald-600 text-3xl"></i>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 glassy-card" role="listitem" aria-label="Python Certification">
+                        <div class="icon-bubble icon-bubble-lg mb-4 mx-auto icon-bubble-emerald-gradient" aria-hidden="true">
+                            <i class="fab fa-python text-emerald-600"></i>
                         </div>
                         <h4 class="font-bold text-gray-800 text-lg mb-1">Python</h4>
                         <p class="text-md text-gray-600">Beginner to Advanced</p>
                     </div>
-                    <div class="certification-item border border-gray-200 rounded-lg p-5 text-center bg-gray-50 hover:border-yellow-400">
-                        <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
-                            <i class="fas fa-database text-yellow-600 text-3xl"></i>
+                    <div class="p-5 rounded-lg shadow-sm hover:shadow-md transform hover:-translate-y-1 transition duration-300 glassy-card" role="listitem" aria-label="SQL Certification">
+                        <div class="icon-bubble icon-bubble-lg mb-4 mx-auto icon-bubble-yellow-gradient" aria-hidden="true">
+                            <i class="fas fa-database text-yellow-600"></i>
                         </div>
                         <h4 class="font-bold text-gray-800 text-lg mb-1">SQL</h4>
                         <p class="text-md text-gray-600">Beginner to Advanced</p>
@@ -620,53 +1195,53 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16" aria-labelledby="contact-heading">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 section-heading">Get In Touch</h2>
+            <h2 id="contact-heading" class="text-4xl font-bold text-center mb-12 section-heading">Get In Touch</h2>
             
             <div class="flex flex-col md:flex-row gap-10">
                 <div class="md:w-1/2">
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col justify-between">
+                    <div class="glassy-card p-8" role="region" aria-labelledby="contact-info-heading">
                         <div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                            <h3 id="contact-info-heading" class="text-2xl font-semibold mb-6">Contact Information</h3>
                             
                             <div class="space-y-6">
                                 <div class="flex items-center">
-                                    <div class="bg-blue-100 p-4 rounded-full mr-4 shadow-md">
-                                        <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-blue-gradient" aria-hidden="true">
+                                        <i class="fas fa-envelope text-blue-600"></i>
                                     </div>
                                     <div>
                                         <h4 class="font-medium text-gray-700 text-lg">Email</h4>
-                                        <a href="mailto:sarthakchoubey2019@gmail.com" class="text-blue-600 hover:underline text-md">sarthakchoubey2019@gmail.com</a>
+                                        <a href="mailto:sarthakchoubey2019@gmail.com" class="text-blue-600 hover:underline text-md" aria-label="Email Sarthak Choubey at sarthakchoubey2019@gmail.com">sarthakchoubey2019@gmail.com</a>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="bg-violet-100 p-4 rounded-full mr-4 shadow-md">
-                                        <i class="fas fa-phone-alt text-violet-600 text-xl"></i>
+                                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-violet-gradient" aria-hidden="true">
+                                        <i class="fas fa-phone-alt text-violet-600"></i>
                                     </div>
                                     <div>
                                         <h4 class="font-medium text-gray-700 text-lg">Phone</h4>
-                                        <a href="tel:7042598766" class="text-blue-600 hover:underline text-md">704-259-8766</a>
+                                        <a href="tel:7042598766" class="text-blue-600 hover:underline text-md" aria-label="Call Sarthak Choubey at 704-259-8766">704-259-8766</a>
                                     </div>
                                 </div>
                                 
                                 <div class="flex items-center">
-                                    <div class="bg-emerald-100 p-4 rounded-full mr-4 shadow-md">
-                                        <i class="fab fa-github text-emerald-600 text-xl"></i>
+                                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-emerald-gradient" aria-hidden="true">
+                                        <i class="fab fa-github text-emerald-600"></i>
                                     </div>
                                     <div>
                                         <h4 class="font-medium text-gray-700 text-lg">GitHub</h4>
-                                        <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-md">github.com/sarthak20244</a>
+                                        <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-md" aria-label="Sarthak Choubey's GitHub profile">github.com/sarthak20244</a>
                                     </div>
                                 </div>
                                 
                                 <div class="flex items-center">
-                                    <div class="bg-blue-700 p-4 rounded-full mr-4 shadow-md">
-                                        <i class="fab fa-linkedin-in text-white text-xl"></i>
+                                    <div class="icon-bubble icon-bubble-sm mr-4 icon-bubble-blue-gradient" aria-hidden="true">
+                                        <i class="fab fa-linkedin-in text-blue-600"></i>
                                     </div>
                                     <div>
                                         <h4 class="font-medium text-gray-700 text-lg">LinkedIn</h4>
-                                        <a href="https://www.linkedin.com/in/sarthak-choubey-01/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-md">linkedin.com/in/sarthak-choubey-01</a>
+                                        <a href="https://www.linkedin.com/in/sarthak-choubey-01/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-md" aria-label="Sarthak Choubey's LinkedIn profile">linkedin.com/in/sarthak-choubey-01</a>
                                     </div>
                                 </div>
                             </div>
@@ -675,25 +1250,25 @@
                 </div>
                 
                 <div class="md:w-1/2">
-                    <form class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 h-full">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send Me a Message</h3>
+                    <form class="glassy-card p-8" aria-label="Contact form">
+                        <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
                         <div class="relative mb-8 group">
-                            <input type="text" id="name" class="peer w-full px-4 py-3 border-0 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-500 bg-transparent placeholder-transparent text-lg" placeholder=" " required />
+                            <input type="text" id="name" class="peer w-full px-4 py-3 border-0 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-500 bg-transparent placeholder-transparent text-lg" placeholder=" " required aria-required="true" />
                             <label for="name" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">Name</label>
                         </div>
                         
                         <div class="relative mb-8 group">
-                            <input type="email" id="email" class="peer w-full px-4 py-3 border-0 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-500 bg-transparent placeholder-transparent text-lg" placeholder=" " required />
+                            <input type="email" id="email" class="peer w-full px-4 py-3 border-0 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-500 bg-transparent placeholder-transparent text-lg" placeholder=" " required aria-required="true" />
                             <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">Email</label>
                         </div>
                         
                         <div class="relative mb-8 group">
-                            <textarea id="message" rows="5" class="peer w-full px-4 py-3 border-0 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-500 bg-transparent placeholder-transparent text-lg" placeholder=" " required></textarea>
+                            <textarea id="message" rows="5" class="peer w-full px-4 py-3 border-0 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-500 bg-transparent placeholder-transparent text-lg" placeholder=" " required aria-required="true"></textarea>
                             <label for="message" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-blue-600 peer-focus:text-sm">Message</label>
                         </div>
                         
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl active:scale-95 text-lg">
-                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        <button type="submit" class="btn-primary w-full" aria-label="Send Message">
+                            Send Message <i class="fas fa-paper-plane ml-2" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div>
@@ -702,22 +1277,28 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-gray-800 to-gray-900 text-white py-10">
+    <footer class="py-10" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="mb-6 md:mb-0">
-                    <p class="text-gray-300 text-lg">&copy; 2025 Sarthak Choubey. All rights reserved.</p>
-                    <p class="text-gray-400 text-sm mt-1">Designed with <i class="fas fa-heart text-red-500"></i> by Sarthak Choubey</p>
+                    <p class="text-lg">&copy; 2025 Sarthak Choubey. All rights reserved.</p>
+                    <p class="text-sm mt-1">Designed with <i class="fas fa-heart text-red-500" aria-hidden="true"></i> by Sarthak Choubey</p>
                 </div>
                 <div class="flex space-x-8 text-2xl">
-                    <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-blue-400 transform hover:scale-110 transition-transform duration-300">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/sarthak20244" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transform hover:scale-110 transition-transform duration-300" aria-label="GitHub profile">
+                        <div class="icon-bubble icon-bubble-xs icon-bubble-gray-gradient">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
                     </a>
-                    <a href="https://www.linkedin.com/in/sarthak-choubey-01/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-blue-400 transform hover:scale-110 transition-transform duration-300">
-                        <i class="fab fa-linkedin-in"></i>
+                    <a href="https://www.linkedin.com/in/sarthak-choubey-01/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transform hover:scale-110 transition-transform duration-300" aria-label="LinkedIn profile">
+                        <div class="icon-bubble icon-bubble-xs icon-bubble-blue-gradient">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </div>
                     </a>
-                    <a href="#" class="text-gray-300 hover:text-blue-400 transform hover:scale-110 transition-transform duration-300">
-                        <i class="fab fa-twitter"></i>
+                    <a href="#" class="hover:text-blue-400 transform hover:scale-110 transition-transform duration-300" aria-label="Twitter profile">
+                        <div class="icon-bubble icon-bubble-xs icon-bubble-blue-gradient">
+                            <i class="fab fa-twitter text-white"></i>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -726,7 +1307,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Section visibility observer
+            // Section visibility observer for fade-in effect on scroll
             const sections = document.querySelectorAll('section');
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -737,76 +1318,89 @@
                         // entry.target.classList.remove('visible'); 
                     }
                 });
-            }, {threshold: 0.1}); // Adjust threshold as needed
+            }, {threshold: 0.1}); // Trigger when 10% of the section is visible
             
             sections.forEach(section => {
                 sectionObserver.observe(section);
             });
             
-            // Mobile menu toggle
-            document.getElementById('menu-btn').addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
+            // Mobile menu toggle functionality
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+                menuBtn.setAttribute('aria-expanded', isExpanded);
+
+                // Animate hamburger to cross and back
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                }
             });
             
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
+                // Check if the href is not just '#' before attempting to scroll
+                if (anchor.getAttribute('href') !== '#') {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open after clicking a link
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            menuIcon.classList.remove('fa-times');
+                            menuIcon.classList.add('fa-bars');
+                            menuBtn.setAttribute('aria-expanded', 'false');
+                        }
                     });
-                    
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                });
+                }
             });
 
-            // Skill items animation (NEW)
-            const skillsSection = document.getElementById('skills');
-            const skillItems = skillsSection.querySelectorAll('.skill-item');
-
-            const skillsObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        skillItems.forEach((item, index) => {
-                            item.style.animationDelay = `${index * 0.1}s`; // Staggered delay
-                            item.classList.add('animate-fade-in-up'); // Apply the existing animation class
-                        });
-                        observer.unobserve(entry.target); // Unobserve once animated
-                    }
-                });
-            }, {threshold: 0.2}); // Trigger when 20% of section is visible
-
-            skillsObserver.observe(skillsSection);
-
-            // Typewriter effect for "Sarthak Choubey"
+            // Infinite Typewriter effect for "Sarthak Choubey" and roles
             const nameTypewriterElement = document.getElementById('name-typewriter');
-            const nameTextToType = nameTypewriterElement.textContent;
-            nameTypewriterElement.textContent = ''; // Clear it initially
+            const phrases = ["Sarthak Choubey", "Data Analyst", "Developer"];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            const typingSpeed = 50; // milliseconds per character for typing
+            const deletingSpeed = 25; // milliseconds per character for deleting
+            const pauseTime = 1500; // milliseconds to pause before deleting or typing next phrase
 
-            const typingSpeed = 30; // milliseconds per character
-
-            function typeText(element, text, callback) {
-                let charIndex = 0;
-                function typeChar() {
-                    if (charIndex < text.length) {
-                        element.textContent += text.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(typeChar, typingSpeed);
-                    } else {
-                        element.classList.add('has-cursor'); // Keep the blinking cursor
-                        if (callback) {
-                            callback();
-                        }
-                    }
+            function typePhrase() {
+                if (charIndex < phrases[phraseIndex].length) {
+                    nameTypewriterElement.textContent += phrases[phraseIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typePhrase, typingSpeed);
+                } else {
+                    nameTypewriterElement.classList.add('has-cursor'); // Keep the blinking cursor after typing
+                    setTimeout(deletePhrase, pauseTime);
                 }
-                typeChar();
             }
 
-            // Start typing "Sarthak Choubey"
+            function deletePhrase() {
+                if (charIndex > 0) {
+                    nameTypewriterElement.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(deletePhrase, deletingSpeed);
+                } else {
+                    nameTypewriterElement.classList.remove('has-cursor');
+                    phraseIndex = (phraseIndex + 1) % phrases.length; // Move to the next phrase, loop back if at end
+                    setTimeout(typePhrase, 500); // Short pause before typing the next phrase
+                }
+            }
+
+            // Start the infinite typing effect
             setTimeout(() => {
-                typeText(nameTypewriterElement, nameTextToType);
+                typePhrase();
             }, 1000); // Initial delay before typing starts
         });
     </script>
